@@ -1,0 +1,50 @@
+---
+
+#
+# Homebrew
+#
+
+- name: "[homebrew] Prepare Brewfile"
+  template:
+    dest: ~/.Brewfile_dev
+    mode: 0644
+    src: osx/Brewfile
+
+- name: "[homebrew] Bundle"
+  command: brew bundle --file=~/.Brewfile_dev
+
+- name: "[homebrew] Clean up old versions"
+  command: brew cleanup
+
+- name: "[homebrew] Clean up old casks"
+  command: brew cask cleanup
+
+#
+# ZSH
+#
+
+- name: "[zsh] Download oh-my-zsh install script"
+  get_url:
+    url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: vendor/oh-my-zsh/install.sh
+
+- name: "[zsh] Install oh-my-zsh"
+  script: vendor/oh-my-zsh/install.sh
+  args:
+    creates: ~/.oh-my-zsh/oh-my-zsh.sh
+
+- name: "[zsh] Copy .zshrc"
+  template:
+    dest: ~/.zshrc
+    src: osx/.zshrc
+
+#
+# iOS
+#
+
+- name: "[ios] Add iOS Simulator to Applications folder"
+  file:
+    path: /Applications/Simulator.app
+    src: /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
+    state: link
+  become: true

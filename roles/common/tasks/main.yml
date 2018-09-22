@@ -1,0 +1,10 @@
+---
+
+- name: "Set hostname"
+  hostname:
+    name: hostname
+  when: hostname is defined and ansible_os_family|lower != 'darwin'
+
+- name: contains configuration for OS X
+  import_tasks: osx.yml
+  when: ansible_os_family|lower == 'darwin'

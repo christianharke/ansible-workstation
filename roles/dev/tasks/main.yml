@@ -1,0 +1,19 @@
+---
+
+#
+# Git
+#
+
+- name: "[git] Copy .gitconfig"
+  template:
+    dest: ~/.gitconfig
+    src: git/.gitconfig
+
+- name: "[git] Copy .gitignore"
+  template:
+    dest: ~/.gitignore
+    src: git/.gitignore
+
+- name: contains configuration for OS X
+  import_tasks: osx.yml
+  when: ansible_os_family|lower == 'darwin'

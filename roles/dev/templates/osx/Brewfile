@@ -1,0 +1,62 @@
+##
+# brews
+##
+brew "curl"
+brew "direnv"
+brew "gifsicle"
+brew "git"
+brew "git-lfs"
+brew "gpg"
+brew "heroku"
+brew "hub"
+brew "iproute2mac"
+brew "nmap"
+brew "nvm"
+brew "openssl"
+brew "python@2"
+brew "python3"
+brew "readline"
+brew "shellcheck"
+brew "tldr"
+brew "tree"
+brew "wget"
+brew "wrk"
+brew "yarn"
+brew "zsh"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+
+##
+# casks
+##
+tap "caskroom/drivers"
+tap "caskroom/versions"
+
+cask "dash"
+cask "docker"
+cask "gpg-suite"
+cask "inssider"
+cask "intellij-idea-ce"
+cask "iterm2"
+cask "java"
+cask "mactex"
+cask "macvim"
+cask "psequel"
+cask "sequel-pro"
+cask "slack"
+cask "teamviewer"
+cask "virtualbox"
+cask "visual-studio-code"
+cask "vmware-fusion"
+cask "wireshark"
+
+# QuickLook plugins
+cask "qlcolorcode"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "quicklook-json"
+
+##
+# Mac App Store
+##
+mas "Xcode", id: 497799835

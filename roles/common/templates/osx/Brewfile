@@ -31,4 +31,4 @@ cask "suspicious-package"
 ##
 # Mac App Store
 ##
-mas "Wunderlist", id: 410628904
+#mas "Wunderlist", id: 410628904

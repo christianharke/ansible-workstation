@@ -150,53 +150,6 @@
     - { path: "/Applications/Caffeine.app", hidden: false }
     - { path: "/Applications/Spectacle.app", hidden: false }
 
-- name: "[system] Open Privacy/Accessibility options"
-  script: scripts/osx/open_privacy-accessibility-settings.sh
-  args:
-    executable: osascript
-#
-# SSD
-#
-
-- name: "[ssd] Disable local Time Machine snapshots"
-  command: tmutil disablelocal
-  become: true
-
-- name: "[ssd] Disable hibernation (speeds up entering sleep mode)"
-  command: pmset -a hibernatemode 0
-  become: true
-
-- stat:
-    path: /Private/var/vm/sleepimage
-  register: sleepimage
-
-- name: "[ssd] Remove immutable flag from the sleep image file"
-  command: chflags nouchg /Private/var/vm/sleepimage
-  become: true
-  when: sleepimage.stat.exists
-
-- name: "[ssd] Remove the sleep image file to save disk space"
-  file:
-    path: /Private/var/vm/sleepimage
-    state: absent
-  become: true
-  when: sleepimage.stat.exists
-
-- name: "[ssd] Create a zero-byte file instead..."
-  file:
-    path: /Private/var/vm/sleepimage
-    state: touch
-    mode: 0600
-  become: true
-
-- name: "[ssd] ...and make sure it can’t be rewritten"
-  command: chflags uchg /Private/var/vm/sleepimage
-  become: true
-
-- name: "[ssd] Disable the sudden motion sensor as it’s not useful for SSDs"
-  command: pmset -a sms 0
-  become: true
-
 #
 # Input
 #
@@ -208,30 +161,6 @@
     key: AppleKeyboardUIMode
     type: int
     value: 3
-    state: present
-
-- name: "[input] Use scroll gesture with the Ctrl (^) modifier key to zoom 1/2"
-  osx_defaults:
-    domain: com.apple.universalaccess
-    key: closeViewScrollWheelToggle
-    type: bool
-    value: true
-    state: present
-
-- name: "[input] Use scroll gesture with the Ctrl (^) modifier key to zoom 2/2"
-  osx_defaults:
-    domain: com.apple.universalaccess
-    key: HIDScrollZoomModifierMask
-    type: int
-    value: 262144
-    state: present
-
-- name: "[input] Follow the keyboard focus while zoomed in"
-  osx_defaults:
-    domain: com.apple.universalaccess
-    key: closeViewZoomFollowsFocus
-    type: bool
-    value: true
     state: present
 
 - name: "[input] Disable press-and-hold for keys in favor of key repeat"
@@ -376,17 +305,6 @@
     type: bool
     value: false
     state: present
-
-#
-# Spotlight
-#
-
-# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-- name: "[spotlight] Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before"
-  command: defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-  become: true
-
-# Restart spotlight handler...
 
 #
 # Activity Monitor

@@ -15,6 +15,3 @@
 
 - name: "[homebrew] Clean up old versions"
   command: brew cleanup
-
-- name: "[homebrew] Clean up old casks"
-  command: brew cask cleanup

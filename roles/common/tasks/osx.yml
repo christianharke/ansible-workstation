@@ -44,6 +44,21 @@
 # System
 #
 
+- name: "[system] Set hostname 1/2"
+  script: scripts/osx/set_hostname.sh "{{ hostname }}"
+  when: hostname is defined
+  become: true
+
+- name: "[system] Set hostname 2/2"
+  osx_defaults:
+    domain: /Library/Preferences/SystemConfiguration/com.apple.smb.server
+    key: NetBIOSName
+    type: string
+    value: "{{ hostname }}"
+    state: present
+  when: hostname is defined
+  become: true
+
 - name: "[system] Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
   osx_defaults:
     domain: /Library/Preferences/com.apple.loginwindow

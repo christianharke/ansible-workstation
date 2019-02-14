@@ -34,7 +34,6 @@ brew "zsh-syntax-highlighting"
 tap "caskroom/drivers"
 tap "caskroom/versions"
 
-cask "dash"
 cask "docker"
 cask "gpg-suite"
 cask "inssider"

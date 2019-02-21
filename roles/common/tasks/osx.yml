@@ -139,11 +139,9 @@
   command: softwareupdate -i -a
   become: true
 
-- name: "[system] Set login items"
-  command: osascript -e 'tell application "System Events" to make login item at end with properties {path:"{{ item.path }}", hidden:{{ item.hidden }}}'
-  loop:
-    - { path: "/Applications/Caffeine.app", hidden: false }
-    - { path: "/Applications/Spectacle.app", hidden: false }
+- name: "Run osx-add-login-items"
+  include_role:
+    name: osx-add-login-items
 
 #
 # Input

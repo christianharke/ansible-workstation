@@ -34,10 +34,9 @@
 # System
 #
 
-- name: "[system] Set login items"
-  command: osascript -e 'tell application "System Events" to make login item at end with properties {path:"{{ item.path }}", hidden:{{ item.hidden }}}'
-  loop:
-    - { path: "/Applications/iTerm.app", hidden: false }
+- name: "Run osx-add-login-items"
+  include_role:
+    name: osx-add-login-items
 
 #
 # iOS

@@ -1,0 +1,5 @@
+---
+
+- name: "[system] Add login items"
+  command: osascript -e 'tell application "System Events" to make login item at end with properties {path:"{{ item.path }}", hidden:{{ item.hidden }}}'
+  loop: "{{ login_items }}"

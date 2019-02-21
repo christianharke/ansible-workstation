@@ -2,3 +2,6 @@
 
 brewfile_src: osx/Brewfile
 brewfile_dest: ~/.Brewfile_common
+login_items:
+  - { path: "/Applications/Caffeine.app", hidden: false }
+  - { path: "/Applications/Spectacle.app", hidden: false }

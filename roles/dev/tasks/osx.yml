@@ -25,11 +25,6 @@
   args:
     creates: ~/.oh-my-zsh/oh-my-zsh.sh
 
-- name: "[zsh] Copy .zshrc"
-  template:
-    dest: ~/.zshrc
-    src: osx/.zshrc
-
 #
 # System
 #

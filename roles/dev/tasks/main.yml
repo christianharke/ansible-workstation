@@ -1,19 +1,17 @@
 ---
 
-#
-# Git
-#
-
-- name: "[git] Copy .gitconfig"
-  template:
-    dest: ~/.gitconfig
-    src: git/.gitconfig
-
-- name: "[git] Copy .gitignore"
-  template:
-    dest: ~/.gitignore
-    src: git/.gitignore
-
 - name: contains configuration for OS X
   import_tasks: osx.yml
   when: ansible_os_family|lower == 'darwin'
+
+#
+# Dotfiles
+#
+
+- name: "Clone dotfiles from vcs"
+  git:
+    repo: git@github.com:christianharke/dotfiles.git
+    dest: "{{ lookup('env', 'HOME') }}/dotfiles"
+
+- name: "Install dotfiles"
+  script: "{{ lookup('env', 'HOME') }}/dotfiles/install.sh"

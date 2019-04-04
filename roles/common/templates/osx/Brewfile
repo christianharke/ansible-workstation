@@ -6,9 +6,6 @@ brew "mas"
 ##
 # casks
 ##
-tap "caskroom/drivers"
-tap "caskroom/versions"
-
 cask "1password"
 cask "adobe-acrobat-reader"
 cask "boostnote"

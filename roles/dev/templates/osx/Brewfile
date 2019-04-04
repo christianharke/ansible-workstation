@@ -30,8 +30,6 @@ brew "zsh-syntax-highlighting"
 ##
 # casks
 ##
-tap "caskroom/drivers"
-tap "caskroom/versions"
 tap "saulpw/vd"
 
 cask "docker"

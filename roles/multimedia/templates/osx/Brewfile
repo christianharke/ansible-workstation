@@ -7,7 +7,6 @@ brew "youtube-dl"
 # casks
 ##
 cask "android-file-transfer"
-cask "bittorrent"
 cask "darktable"
 cask "dropbox"
 cask "handbrake"

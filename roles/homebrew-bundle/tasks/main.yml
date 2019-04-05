@@ -16,7 +16,7 @@
     update_homebrew: yes
 
 - name: "[homebrew] Prepare Brewfile"
-  template:
+  copy:
     dest: "{{ brewfile_dest }}"
     mode: 0644
     src: "{{ brewfile_src }}"

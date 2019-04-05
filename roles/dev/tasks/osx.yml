@@ -1,8 +1,5 @@
 ---
 
-- name: "Include os-specific variables"
-  include_vars: osx.yml
-
 #
 # Homebrew
 #
@@ -10,6 +7,9 @@
 - name: Run homebrew-bundle
   include_role:
     name: homebrew-bundle
+  vars:
+    brewfile_src: osx/Brewfile
+    brewfile_dest: ~/.Brewfile_dev
 
 #
 # ZSH
@@ -32,6 +32,9 @@
 - name: "Run osx-add-login-items"
   include_role:
     name: osx-add-login-items
+  vars:
+    login_items:
+      - { path: "/Applications/iTerm.app", hidden: false }
 
 #
 # iOS

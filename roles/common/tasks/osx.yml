@@ -9,9 +9,6 @@
 # and
 # https://github.com/wincent/wincent/blob/master/roles/defaults/tasks/main.yml
 
-- name: "Include os-specific variables"
-  include_vars: osx.yml
-
 #
 # Homebrew
 #
@@ -19,6 +16,9 @@
 - name: "Run homebrew-bundle"
   include_role:
     name: homebrew-bundle
+  vars:
+    brewfile_src: osx/Brewfile
+    brewfile_dest: ~/.Brewfile_common
 
 #
 # System
@@ -142,6 +142,10 @@
 - name: "Run osx-add-login-items"
   include_role:
     name: osx-add-login-items
+  vars:
+    login_items:
+      - { path: "/Applications/Caffeine.app", hidden: false }
+      - { path: "/Applications/Spectacle.app", hidden: false }
 
 #
 # Input

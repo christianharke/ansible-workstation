@@ -1,6 +1,0 @@
----
-
-brewfile_src: osx/Brewfile
-brewfile_dest: ~/.Brewfile_dev
-login_items:
-  - { path: "/Applications/iTerm.app", hidden: false }

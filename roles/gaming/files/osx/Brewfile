@@ -1,8 +1,0 @@
-##
-# casks
-##
-tap "caskroom/drivers"
-
-cask "steam"
-cask "teamspeak-client"
-cask "xbox360-controller-driver-unofficial"

@@ -1,24 +1,42 @@
 ---
 
-# Some stuff was taken from
-# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-# and
-# https://github.com/paulmillr/dotfiles/blob/master/etc/macos.sh
-# and
-# https://github.com/geerlingguy/dotfiles/blob/master/.osx
-# and
-# https://github.com/wincent/wincent/blob/master/roles/defaults/tasks/main.yml
-
 #
 # Homebrew
 #
 
-- name: "Run homebrew-bundle"
+- name: "[homebrew] Install software"
   include_role:
-    name: homebrew-bundle
+    name: geerlingguy.homebrew
   vars:
-    brewfile_src: osx/Brewfile
-    brewfile_dest: ~/.Brewfile_common
+    homebrew_cask_apps:
+      - 1password
+      - adobe-acrobat-reader
+      - boostnote
+      - caffeine
+      - firefox
+      - forklift
+      - google-chrome
+      - keepassxc
+      - keka
+      - libreoffice
+      - licecap
+      - microsoft-office
+      - spectacle
+      - tunnelblick
+      - vlc
+      # QuickLook plugins
+      - suspicious-package
+
+#
+# MAS
+#
+
+- name: "[mas] Install software"
+  include_role:
+    name: geerlingguy.mas
+  vars:
+    mas_installed_apps:
+      - { id: 410628904, name: Wunderlist }
 
 #
 # System

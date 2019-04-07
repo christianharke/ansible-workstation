@@ -4,9 +4,36 @@
 # Homebrew
 #
 
-- name: Run homebrew-bundle
+- name: "[homebrew] Install software"
   include_role:
-    name: homebrew-bundle
+    name: geerlingguy.homebrew
   vars:
-    brewfile_src: osx/Brewfile
-    brewfile_dest: ~/.Brewfile_multimedia
+    homebrew_installed_packages:
+      - youtube-dl
+    homebrew_cask_apps:
+      - android-file-transfer
+      - darktable
+      - dropbox
+      - handbrake
+      # - hp-easy-start
+      - logitech-myharmony
+      - sabnzbd
+      - signal
+      - skype
+      - spotify
+      - synology-drive
+      - synology-photo-station-uploader
+      - telegram
+      - twitch
+      - whatsapp
+
+#
+# MAS
+#
+
+- name: "[mas] Install software"
+  include_role:
+    name: geerlingguy.mas
+  vars:
+    mas_installed_apps:
+      - { id: 408981434, name: iMovie }

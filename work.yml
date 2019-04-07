@@ -5,3 +5,11 @@
   roles:
     - common
     - dev
+  vars_prompt:
+    - name: "mas_email"
+      prompt: "Enter Apple ID"
+      private: no
+      when: ansible_os_family|lower == 'darwin'
+    - name: "mas_password"
+      prompt: "Enter password"
+      when: ansible_os_family|lower == 'darwin'

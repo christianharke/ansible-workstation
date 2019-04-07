@@ -4,12 +4,73 @@
 # Homebrew
 #
 
-- name: Run homebrew-bundle
+- name: "[homebrew] Install software"
   include_role:
-    name: homebrew-bundle
+    name: geerlingguy.homebrew
   vars:
-    brewfile_src: osx/Brewfile
-    brewfile_dest: ~/.Brewfile_dev
+    homebrew_installed_packages:
+      - curl
+      - direnv
+      - gifsicle
+      - git
+      - git-lfs
+      - go
+      - gpg
+      - heroku
+      - iproute2mac
+      - nmap
+      - nvm
+      - openssl
+      - python@2
+      - python3
+      - readline
+      - shellcheck
+      - stow
+      - tldr
+      - tree
+      - watch
+      - wget
+      - wrk
+      - yarn
+      - zsh
+      - zsh-completion
+      - zsh-syntax-highlighting
+    homebrew_taps:
+      - saulpw/vd
+    homebrew_cask_apps:
+      - docker
+      - gpg-suite
+      - inssider
+      - intellij-idea-ce
+      - iterm2
+      - java
+      - mactex
+      - macvim
+      - psequel
+      - sequel-pro
+      - slack
+      - teamviewer
+      - virtualbox
+      - visidata
+      - visual-studio-code
+      - vmware-fusion
+      - wireshark
+      # QuickLook plugins
+      - qlcolorcode
+      - qlstephen
+      - qlmarkdown
+      - quicklook-json
+
+#
+# MAS
+#
+
+- name: "[mas] Install software"
+  include_role:
+    name: geerlingguy.mas
+  vars:
+    mas_installed_apps:
+      - { id: 497799835, name: Xcode }
 
 #
 # ZSH

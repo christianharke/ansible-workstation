@@ -4,9 +4,11 @@
 # Homebrew
 #
 
-- name: Run homebrew-bundle
+- name: "[homebrew] Install software"
   include_role:
-    name: homebrew-bundle
+    name: geerlingguy.homebrew
   vars:
-    brewfile_src: osx/Brewfile
-    brewfile_dest: ~/.Brewfile_gaming
+    homebrew_cask_apps:
+      - steam
+      - teamspeak-client
+      - xbox360-controller-driver-unofficial

@@ -2,6 +2,8 @@
 
 - name: "[dev] Configure OS X"
   import_tasks: osx.yml
+  vars_files:
+    - "vars/osx.yml"
   when: ansible_os_family|lower == 'darwin'
 
 #

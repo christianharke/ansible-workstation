@@ -42,9 +42,9 @@
 # iOS
 #
 
-#- name: "[ios] Add iOS Simulator to Applications folder"
-#  file:
-#    path: /Applications/Simulator.app
-#    src: /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
-#    state: link
-#  become: true
+- name: "[ios] Add iOS Simulator to Applications folder"
+  file:
+    path: /Applications/Simulator.app
+    src: /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
+    state: link
+  become: true

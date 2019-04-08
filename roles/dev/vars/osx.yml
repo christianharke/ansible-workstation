@@ -1,0 +1,70 @@
+---
+
+#
+# Homebrew
+#
+
+homebrew_installed_packages:
+  - curl
+  - direnv
+  - gifsicle
+  - git
+  - git-lfs
+  - go
+  - gpg
+  - iproute2mac
+  - nmap
+  - nvm
+  - openssl
+  - python@2
+  - python3
+  - readline
+  - shellcheck
+  - stow
+  - tree
+  - watch
+  - wget
+  - wrk
+  - yarn
+  - zsh
+  - zsh-completion
+  - zsh-syntax-highlighting
+homebrew_taps:
+  - saulpw/vd
+homebrew_cask_apps:
+  - docker
+  - gpg-suite
+  - inssider
+  - intellij-idea-ce
+  - iterm2
+  - java
+  - mactex
+  - macvim
+  - psequel
+  - sequel-pro
+  - slack
+  - teamviewer
+  - virtualbox
+  - visidata
+  - visual-studio-code
+  - vmware-fusion
+  - wireshark
+  # QuickLook plugins
+  - qlcolorcode
+  - qlstephen
+  - qlmarkdown
+  - quicklook-json
+
+#
+# MAS
+#
+
+mas_installed_apps:
+  - { id: 497799835, name: Xcode }
+
+#
+# System
+#
+
+login_items:
+  - { path: "/Applications/iTerm.app", hidden: false }

@@ -1,0 +1,30 @@
+---
+
+#
+# Homebrew
+#
+
+homebrew_installed_packages:
+  - youtube-dl
+homebrew_cask_apps:
+  - android-file-transfer
+  - darktable
+  - dropbox
+  - handbrake
+  - homebrew/cask-drivers/hp-easy-start
+  - logitech-myharmony
+  - sabnzbd
+  - signal
+  - spotify
+  - synology-drive
+  - synology-photo-station-uploader
+  - telegram
+  - twitch
+  - whatsapp
+
+#
+# MAS
+#
+
+mas_installed_apps:
+  - { id: 408981434, name: iMovie }

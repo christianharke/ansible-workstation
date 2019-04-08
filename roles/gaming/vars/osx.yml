@@ -1,0 +1,10 @@
+---
+
+#
+# Homebrew
+#
+
+homebrew_cask_apps:
+  - steam
+  - teamspeak-client
+  - xbox360-controller-driver-unofficial

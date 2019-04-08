@@ -7,26 +7,6 @@
 - name: "[homebrew] Install software"
   include_role:
     name: geerlingguy.homebrew
-  vars:
-    homebrew_cask_apps:
-      - 1password
-      - adobe-acrobat-reader
-      - boostnote
-      - caffeine
-      - dockutil
-      - firefox
-      - forklift
-      - google-chrome
-      - keepassxc
-      - keka
-      - libreoffice
-      - licecap
-      - microsoft-office
-      - spectacle
-      - tunnelblick
-      - vlc
-      # QuickLook plugins
-      - suspicious-package
 
 #
 # MAS
@@ -35,9 +15,6 @@
 - name: "[mas] Install software"
   include_role:
     name: geerlingguy.mas
-  vars:
-    mas_installed_apps:
-      - { id: 410628904, name: Wunderlist }
 
 #
 # System
@@ -538,44 +515,10 @@
   shell: dockutil --remove '{{ item }}'
   ignore_errors: true
   with_items: dockitems_to_remove
-  vars:
-    dockitems_to_remove:
-      - Siri
-      - Launchpad
-      - Safari
-      - Mail
-      - Notizen       # Notes
-      - Erinnerungen  # Reminders
-      - Nachrichten   # Messages
-      - FaceTime
-      - iTunes
-      - Bücher        # Books
 
 - name: "[dock] Ensure wanted dock icons to be present"
   shell: dockutil --find '{{ item.name }}' || dockutil --add '{{ item.path }}'
   with_items: dockitems_to_persist
-  vars:
-    dockitems_to_persist:
-      # Contacts
-      - name: Kontakte
-        pos: 1
-      # Calendar
-      - name: Kalender
-        pos: 2
-      - name: Firefox
-        path: "/Applications/Firefox.app"
-        pos: 3
-      # Maps
-      - name: Karten
-        pos: 4
-      # Photos
-      - name: Fotos
-        pos: 5
-      - name: App Store
-        pos: 6
-      # System Preferences
-      - name: Systemeinstellungen
-        pos: 7
 
 - name: "[dock] Order dock items"
   shell: dockutil --move '{{ item.name }}' --position {{ item.pos }}

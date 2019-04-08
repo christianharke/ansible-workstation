@@ -7,57 +7,6 @@
 - name: "[homebrew] Install software"
   include_role:
     name: geerlingguy.homebrew
-  vars:
-    homebrew_installed_packages:
-      - curl
-      - direnv
-      - gifsicle
-      - git
-      - git-lfs
-      - go
-      - gpg
-      - iproute2mac
-      - nmap
-      - nvm
-      - openssl
-      - python@2
-      - python3
-      - readline
-      - shellcheck
-      - stow
-      - tree
-      - watch
-      - wget
-      - wrk
-      - yarn
-      - zsh
-      - zsh-completion
-      - zsh-syntax-highlighting
-    homebrew_taps:
-      - saulpw/vd
-    homebrew_cask_apps:
-      - docker
-      - gpg-suite
-      - inssider
-      - intellij-idea-ce
-      - iterm2
-      - java
-      - mactex
-      - macvim
-      - psequel
-      - sequel-pro
-      - slack
-      - teamviewer
-      - virtualbox
-      - visidata
-      - visual-studio-code
-      - vmware-fusion
-      - wireshark
-      # QuickLook plugins
-      - qlcolorcode
-      - qlstephen
-      - qlmarkdown
-      - quicklook-json
 
 #
 # MAS
@@ -66,9 +15,6 @@
 - name: "[mas] Install software"
   include_role:
     name: geerlingguy.mas
-  vars:
-    mas_installed_apps:
-      - { id: 497799835, name: Xcode }
 
 #
 # ZSH
@@ -88,12 +34,9 @@
 # System
 #
 
-- name: "Run osx-add-login-items"
+- name: "[system] Run osx-add-login-items"
   include_role:
     name: osx-add-login-items
-  vars:
-    login_items:
-      - { path: "/Applications/iTerm.app", hidden: false }
 
 #
 # iOS

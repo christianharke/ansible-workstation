@@ -15,7 +15,7 @@
       - darktable
       - dropbox
       - handbrake
-      - hp-easy-start
+      - homebrew/cask-drivers/hp-easy-start
       - logitech-myharmony
       - sabnzbd
       - signal

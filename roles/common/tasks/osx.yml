@@ -13,6 +13,7 @@
       - adobe-acrobat-reader
       - boostnote
       - caffeine
+      - dockutil
       - firefox
       - forklift
       - google-chrome
@@ -532,6 +533,53 @@
 #
 # Dock
 #
+
+- name: "[dock] Remove unwanted dock icons"
+  shell: dockutil --remove '{{ item }}'
+  ignore_errors: true
+  with_items: dockitems_to_remove
+  vars:
+    dockitems_to_remove:
+      - Siri
+      - Launchpad
+      - Safari
+      - Mail
+      - Notizen       # Notes
+      - Erinnerungen  # Reminders
+      - Nachrichten   # Messages
+      - FaceTime
+      - iTunes
+      - Bücher        # Books
+
+- name: "[dock] Ensure wanted dock icons to be present"
+  shell: dockutil --find '{{ item.name }}' || dockutil --add '{{ item.path }}'
+  with_items: dockitems_to_persist
+  vars:
+    dockitems_to_persist:
+      # Contacts
+      - name: Kontakte
+        pos: 1
+      # Calendar
+      - name: Kalender
+        pos: 2
+      - name: Firefox
+        path: "/Applications/Firefox.app"
+        pos: 3
+      # Maps
+      - name: Karten
+        pos: 4
+      # Photos
+      - name: Fotos
+        pos: 5
+      - name: App Store
+        pos: 6
+      # System Preferences
+      - name: Systemeinstellungen
+        pos: 7
+
+- name: "[dock] Order dock items"
+  shell: dockutil --move '{{ item.name }}' --position {{ item.pos }}
+  with_items: dockitems_to_persist
 
 - name: "[dock] Set the icon size of Dock items"
   osx_defaults:

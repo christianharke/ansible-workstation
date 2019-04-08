@@ -16,7 +16,6 @@
       - git-lfs
       - go
       - gpg
-      - heroku
       - iproute2mac
       - nmap
       - nvm

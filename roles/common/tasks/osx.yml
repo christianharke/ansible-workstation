@@ -514,15 +514,15 @@
 - name: "[dock] Remove unwanted dock icons"
   shell: dockutil --remove '{{ item }}'
   ignore_errors: true
-  with_items: dockitems_to_remove
+  with_items: "{{ dockitems_to_remove }}"
 
 - name: "[dock] Ensure wanted dock icons to be present"
   shell: dockutil --find '{{ item.name }}' || dockutil --add '{{ item.path }}'
-  with_items: dockitems_to_persist
+  with_items: "{{ dockitems_to_persist }}"
 
 - name: "[dock] Order dock items"
   shell: dockutil --move '{{ item.name }}' --position {{ item.pos }}
-  with_items: dockitems_to_persist
+  with_items: "{{ dockitems_to_persist }}"
 
 - name: "[dock] Set the icon size of Dock items"
   osx_defaults:

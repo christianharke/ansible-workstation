@@ -2,6 +2,9 @@
 
 - name: "[gaming] Configure OS X"
   import_tasks: osx.yml
-  vars_files:
-    - "vars/osx.yml"
+  vars:
+    homebrew_cask_apps:
+      - steam
+      - teamspeak-client
+      - xbox360-controller-driver-unofficial
   when: ansible_os_family|lower == 'darwin'

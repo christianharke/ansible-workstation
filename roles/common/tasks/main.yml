@@ -2,6 +2,59 @@
 
 - name: "[common] Configure OS X"
   import_tasks: osx.yml
-  vars_files:
-    - "vars/osx.yml"
+  vars:
+    homebrew_cask_apps:
+      - 1password
+      - adobe-acrobat-reader
+      - boostnote
+      - caffeine
+      - dockutil
+      - firefox
+      - forklift
+      - google-chrome
+      - keepassxc
+      - keka
+      - libreoffice
+      - licecap
+      - microsoft-office
+      - spectacle
+      - tunnelblick
+      - vlc
+      # QuickLook plugins
+      - suspicious-package
+    mas_installed_apps:
+      - { id: 410628904, name: Wunderlist }
+    dockitems_to_remove:
+      - Siri
+      - Launchpad
+      - Safari
+      - Mail
+      - Notizen       # Notes
+      - Erinnerungen  # Reminders
+      - Nachrichten   # Messages
+      - FaceTime
+      - iTunes
+      - Bücher        # Books
+    dockitems_to_persist:
+      - name: Firefox
+        path: "/Applications/Firefox.app"
+        pos: 1
+      - name: Kontakte
+        path: "/Applications/Contacts.app"
+        pos: 2
+      - name: Kalender
+        path: "/Applications/Calendar.app"
+        pos: 3
+      - name: Karten
+        path: "/Applications/Maps.app"
+        pos: 4
+      - name: Fotos
+        path: "/Applications/Photos.app"
+        pos: 5
+      - name: App Store
+        path: "/Applications/App Store.app"
+        pos: 6
+      - name: Systemeinstellungen
+        path: "/Applications/System Preferences.app"
+        pos: 7
   when: ansible_os_family|lower == 'darwin'

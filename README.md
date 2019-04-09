@@ -1,5 +1,7 @@
 # Ansible Playbook: Workstation
 
+[![Build Status](https://travis-ci.org/christianharke/ansible-workstation.svg?branch=master)](https://travis-ci.org/christianharke/ansible-workstation)
+
 ## Usage
 
 ## Install Ansible

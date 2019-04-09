@@ -32,11 +32,11 @@ script:
   #- "cp tests/config.yml config.yml"
 
   # Test the playbook
-  - "travis_wait 120 ansible-playbook main.yml -e \"hostname=foobar\""
+  - "travis_wait 120 ansible-playbook main.yml -e \"hostname=foobar mas_installed_apps=[]\""
 
   # Test the playbook's idempotence
   - idempotence=$(mktemp)
-  - "ansible-playbook main.yml -e \"hostname=foobar\" | tee -a ${idempotence}"
+  - "ansible-playbook main.yml -e \"hostname=foobar mas_installed_apps=[]\" | tee -a ${idempotence}"
   - >
     tail ${idempotence}
     | grep -q 'changed=0.*failed=0'

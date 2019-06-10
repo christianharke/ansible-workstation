@@ -12,6 +12,7 @@
       - handbrake
       - homebrew/cask-drivers/hp-easy-start
       - logitech-myharmony
+      - nextcloud
       - sabnzbd
       - signal
       - spotify

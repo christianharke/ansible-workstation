@@ -12,6 +12,7 @@
       - go
       - gpg
       - iproute2mac
+      - ncdu
       - nmap
       - nvm
       - openssl

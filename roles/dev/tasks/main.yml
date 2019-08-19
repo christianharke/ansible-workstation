@@ -22,6 +22,7 @@
       - shellcheck
       - stow
       - tree
+      - vim
       - watch
       - wget
       - wrk
@@ -39,7 +40,6 @@
       - iterm2
       - java
       - mactex
-      - macvim
       - psequel
       - sequel-pro
       - slack
